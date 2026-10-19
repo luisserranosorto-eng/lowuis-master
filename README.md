@@ -5,7 +5,7 @@ Portafolio digital de **Luis Eduardo Sorto**, diseñador gráfico digital y crea
 ## Páginas publicadas
 
 - [Portafolio](https://luisserranosorto-eng.github.io/lowuis-master/)
-- [Sistema de diseño](https://luisserranosorto-eng.github.io/lowuis-master/design.html)
+- [Sistema de diseño](https://luisserranosorto-eng.github.io/lowuis-master/design-system.html)
 
 ## Documentación
 
