@@ -30,6 +30,7 @@ colors:
 typography:
   family-display: "Barlow Condensed"
   family-body: "Barlow"
+  family-accent: "Ballet"
   display:
     family: "{typography.family-display}"
     weight: 800
@@ -195,6 +196,11 @@ components:
     fast: "150-220ms ease-out"
     reveal: "350ms ease-out + translateY max 16px"
     stagger: "60ms, max-delay 180ms"
+    loader: "brief intro max 1200ms, skippable, never blocks content"
+    parallax: "scroll-linked translateY/scale, subtle on mobile, full on desktop"
+    marquee: "infinite loop for IMPACTO/DOMINIO/DRAMA strip"
+    horizontal-drive: "vertical scroll drives horizontal track via sticky pin"
+    hover-swap: "image swap/scale 1.08 on hover like helmet hall-of-fame"
 ---
 
 # Overview
@@ -205,7 +211,7 @@ Tres principios: **impacto** (escala y contraste), **dominio** (precisión y pre
 
 Dirección: fuerza de cartel tipográfico + atmósfera audiovisual. Fondos oscuros `{colors.background}`, rojo firma `{colors.primary}`, titulares condensados `{typography.family-display}` y fotografía / video de gran formato. Ritmo por cambios de escala: momentos intensos seguidos de espacios de lectura tranquila.
 
-Estructura: portada (nombre + perfil + pieza + `Ver proyectos` / `Contacto`) → selección de proyectos (identidad, social, editorial, motion) → sobre mí + habilidades / herramientas confirmadas + formación / experiencia → contacto. El CV descargable solo aparece cuando existe el PDF. El contenido profesional es legible sin esperar animaciones.
+Estructura: portada (nombre + perfil + pieza + `Ver proyectos` / `Contacto`) → selección de proyectos (identidad, social, editorial, motion) → sobre mí + habilidades / herramientas confirmadas + formación / experiencia → contacto. El CV descargable solo aparece cuando existe el PDF. Intro breve tipo loader permitida (máx 1.2s, se puede saltar).
 
 El nombre en mayúsculas condensadas es identificación tipográfica inicial, no logotipo definitivo. Líneas finas, numeración y flechas sencillas orientan sin decorar en exceso.
 
@@ -272,7 +278,7 @@ Escala de espaciado `{spacing.scale}`: 4, 8, 12, 16, 24, 32, 48, 64, 96, 128. Se
 
 Móvil: composiciones apiladas, títulos siempre horizontales, imágenes con protagonismo, fichas en secuencia. Orden visual = orden de lectura / DOM. Imágenes en tamaños adecuados, carga progresiva fuera del primer viewport. Portada rápida; video pesado nunca bloquea.
 
-Scroll suave a ancla con offset para la barra fija. Sin scroll-jacking, sin saltos forzados.
+Scroll suave a ancla con offset para la barra fija. Experiencia estilo Lando Norris permitida: scroll vertical que mueve pista horizontal (horizontal-drive con sticky pin), títulos fijos por tramo, parallax entre capas y marquee en loop. En móvil se simplifica a 1 columna y el horizontal pasa a swipe manual.
 
 ## Elevation & Depth
 
@@ -292,17 +298,17 @@ Divisores: `{components.divider}` 1px. Flechas y numeración como orientación. 
 
 ## Components
 
-Interacción con cursor, táctil y teclado. Movimiento 150–220ms con desaceleración suave (`{components.motion.fast}`). Si `prefers-reduced-motion`: sin escalados, sin reveals, sin scroll suave — cambios inmediatos.
+Interacción con cursor, táctil y teclado. Movimiento 150–220ms con desaceleración suave (`{components.motion.fast}`) + parallax, marquee y horizontal-drive (`{components.motion.parallax}`, `{components.motion.marquee}`, `{components.motion.horizontal-drive}`). Si `prefers-reduced-motion`: se reduce a cambios mínimos.
 
 - **Navegación:** barra superior `{components.nav-bar.background}` fija. Anclas `Proyectos / Sobre mí / Contacto` con scroll suave + offset. Activa con subrayado `{colors.primary}`. Rueda / trackpad / táctil nativo.
 - **Menú móvil:** botón `Menú`. Panel negro desde arriba ~220ms, enlaces grandes + `Cerrar`. Cierra con opción / `Cerrar` / `Escape`. Foco atrapado dentro, fondo bloqueado, retorno de foco al botón.
 - **Botones:** primario `{components.button-primary}` — fondo `{colors.primary}`, texto negro, hover `{colors.primary-hover}` 180ms, press scale 0.98. Secundario `{components.button-secondary}` — transparente → claro con texto negro en hover. `Ver proyectos` → galería, `Contacto` → contacto. Foco visible siempre.
 - **Enlaces:** subrayado visible. Nunca solo color.
-- **Tarjetas de proyecto:** son enlaces. Hover: imagen ×1.03 en 220ms dentro de contenedor con `overflow:hidden` + subrayado de título; salida suave. Enter abre con foco. Nombre + disciplina siempre visibles, también en táctil.
+- **Tarjetas de proyecto:** son enlaces. Hover: imagen ×1.08 en 220ms dentro de contenedor con `overflow:hidden` + subrayado de título + intercambio de imagen tipo hall-of-fame cuando haya hover; salida suave. Enter abre con foco. Nombre + disciplina siempre visibles, también en táctil.
 - **Filtros:** `Todos / Identidad / Social / Editorial / Motion` (solo si hay volumen). Filtrado sin recarga, 180ms, subrayado rojo + `aria-pressed` / `aria-selected`. Sin robo de foco ni saltos. En móvil en varias líneas.
 - **Galería / lightbox:** fondo negro, `Cerrar / Anterior / Siguiente` + contador. Flechas de teclado, `Escape` cierra, swipe en móvil con botones siempre visibles. Foco atrapado, retorno a la imagen origen. Sin recortes obligatorios.
-- **Video:** portada + `Reproducir`. Controles nativos (play / pausa / volumen / seek / fullscreen). Subtítulos si hay diálogo. Sin autoplay con sonido. Decorativo de portada: mudo + botón pausa + poster si hay `reduced-motion`.
-- **Reveal on scroll:** una sola vez, 350ms + translateY ≤16px, stagger 60ms máx 180ms. Nada de loops en titulares, parallax intenso o layout-shift leyendo.
+- **Video:** portada + `Reproducir`. Controles nativos (play / pausa / volumen / seek / fullscreen). Subtítulos si hay diálogo. Vista previa muda en autoplay permitida en tarjetas y portada (se pausa fuera de pantalla y con `reduced-motion`). Sonido solo cuando el usuario lo activa.
+- **Reveal on scroll + parallax + horizontal:** una sola vez para textos, 350ms + translateY ≤16px, stagger 60ms máx 180ms. Además: parallax entre LOWUIS/foto por scroll, franja IMPACTO/DOMINIO/DRAMA en marquee ligado a scroll, título de galería fijo por tramo y pista horizontal que avanza con el scroll vertical (estilo Lando).
 - **Contacto:** email `mailto:` visible + `Copiar correo` → `Correo copiado` (fallback: seleccionar manualmente). Sociales solo confirmados, en pestaña nueva. `Descargar CV (PDF)` solo si existe el archivo.
 - **Formulario (opcional):** labels siempre visibles, borde de foco destacado, `Enviar` → `Enviando` + disabled anti-doble, errores junto al campo conservando datos, reintento explicado, éxito solo con confirmación real.
 - [REVISAR] estados disabled / error / éxito de campos, textos exactos de mensajes y endpoint del formulario no definidos.
@@ -322,7 +328,7 @@ Interacción con cursor, táctil y teclado. Movimiento 150–220ms con desaceler
 
 - No juntar todos los saturados en una sección.
 - No inventar experiencia, clientes, resultados ni datos de CV.
-- No intros obligatorias, destellos ni sonido automático.
-- No ocultar información esencial tras hover.
+- Intro breve permitida (loader máx 1.2s, saltable). Sin destellos fuertes ni sonido automático.
+- Hover puede revelar “Explorar proyecto” y previews mudas; la info esencial (nombre + disciplina) siempre visible.
 - No deformar tipos ni encoger texto para forzar composición.
 - No repetir tarjetas idénticas ni efectos sin propósito.
