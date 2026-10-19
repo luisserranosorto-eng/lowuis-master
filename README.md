@@ -14,5 +14,5 @@ Portafolio digital de **Luis Eduardo Sorto**, diseñador gráfico digital y crea
 
 ## Documentos PDF
 
-- [El Ágora](https://github.com/luisserranosorto-eng/lowuis-master/blob/main/assets/EL%20AGORA.pdf)
-- [Prozine](https://github.com/luisserranosorto-eng/lowuis-master/blob/main/assets/PROZINE.pdf)
+- [Documento de diseño](https://github.com/luisserranosorto-eng/lowuis-master/blob/main/assets/Design_luis.pdf)
+- [Arquitectura del CV](https://github.com/luisserranosorto-eng/lowuis-master/blob/main/assets/Arquitectura-CV.pdf)
