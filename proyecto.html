@@ -76,6 +76,27 @@ if(project.layout==='mala'||project.layout==='gala'){
     addPiece(groups[type],item);
   });
 }
+  // GitHub Pages distingue los acentos del nombre de archivo; normalizamos las rutas de recursos.
+  (function(){
+    function fix(media){
+      var raw=media.getAttribute&&media.getAttribute('src');
+      if(!raw||raw.indexOf('assets/')===-1)return;
+      var normalized;
+      try{normalized=decodeURIComponent(raw).normalize('NFC');}catch(error){return;}
+      if(normalized==='assets/prozine/PROZINE_Página_1.jpg')normalized='assets/prozine/Asset 1Baymax3.jpg';
+      if(normalized!==raw)media.setAttribute('src',normalized);
+    }
+    function scan(node){
+      if(node.nodeType!==1)return;
+      if(node.matches&&node.matches('img[src],video[src],source[src]'))fix(node);
+      if(node.querySelectorAll)node.querySelectorAll('img[src],video[src],source[src]').forEach(fix);
+    }
+    scan(document.documentElement);
+    new MutationObserver(function(records){records.forEach(function(record){
+      if(record.type==='attributes')fix(record.target);
+      else record.addedNodes.forEach(scan);
+    });}).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['src']});
+  })();
 </script>
 </body>
 </html>
