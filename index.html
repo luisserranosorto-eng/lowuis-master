@@ -332,6 +332,30 @@ dialog::backdrop{background:var(--color-overlay)}
 @media (min-width:881px){.skills-top-screen{padding-top:clamp(20px,3vw,40px)}}
 /* ESTE SOY YO — galería inmersiva revelada por el scroll. */
 .self-gallery{position:relative;height:1200svh;margin-top:0;background:#000;border-top:1px solid var(--color-border-subtle)}.self-gallery-sticky{position:sticky;top:0;height:100svh;overflow:hidden;background:#000}.self-gallery-title{position:absolute;z-index:4;top:50%;left:50%;margin:0;color:var(--color-primary);font-family:"Manufacturing Consent",var(--font-accent);font-size:clamp(72px,15vw,260px);font-weight:400;line-height:.76;letter-spacing:0;white-space:nowrap;pointer-events:none;transform:translate(-50%,-50%);will-change:opacity,transform}.self-gallery-stage{position:absolute;inset:0;overflow:hidden}.self-piece{position:absolute;z-index:1;margin:0;overflow:hidden;background:#151515;box-shadow:0 18px 48px rgba(0,0,0,.52);will-change:opacity,transform}.self-piece img,.self-piece video{display:block;width:100%;height:100%;object-fit:contain}.self-piece video{background:#000}.self-piece.is-wide{border-radius:0}.self-piece.is-tall{border-radius:0}@media(max-width:767px){.self-gallery{height:900svh}.self-gallery-title{font-size:clamp(62px,22vw,116px)}.self-piece{box-shadow:0 12px 30px rgba(0,0,0,.48)}}
+/* Ajustes exclusivos para móvil: mantienen la composición sin desbordar la pantalla. */
+@media(max-width:700px){
+  html,body{overflow-x:clip}
+  .hero{padding-top:76px;padding-bottom:42px}
+  .hero-kickers{gap:12px}
+  .hero-kickers .pretitle{width:calc(50% - 6px);font-size:clamp(13px,4.3vw,17px);line-height:1.28;letter-spacing:.015em}
+  .hero-kickers .pretitle-right{margin-left:auto}
+  .display{font-size:clamp(82px,25vw,128px);line-height:.92}
+  .hero-portfolio{font-size:clamp(18px,5.6vw,25px);letter-spacing:.13em}
+  .about-image-section{height:88svh;min-height:520px}
+  .about-image-section img{object-position:58% center}
+  .cinema-statement{width:100vw;margin-left:calc(50% - 50vw);padding:28px 5vw 12px;overflow:hidden}
+  .cinema-statement p{width:100%;transform:none}
+  .cinema-statement .cinema-main b{font-size:clamp(58px,17vw,78px)}
+  .cinema-statement .cinema-main i{font-size:clamp(44px,12.5vw,60px)}
+  .cinema-statement p span.cinema-final{font-size:clamp(62px,16vw,78px);line-height:.82;text-align:left;letter-spacing:-.08em}
+  .contact-section{padding-top:80px;padding-bottom:80px}
+  .contact-title{letter-spacing:-.065em}
+  .contact-title .impact{white-space:normal;max-width:100%}
+  .contact-title .impacten{font-size:clamp(66px,18.5vw,78px);line-height:.74}
+  .contact-title .mundo{font-size:clamp(72px,20vw,84px);line-height:.74;letter-spacing:-.095em}
+  .contact-subtitle{margin-top:24px}
+  .contact-details{gap:34px;margin-top:48px}
+}
 </style>
 </head>
 <body>
@@ -460,8 +484,8 @@ dialog::backdrop{background:var(--color-overlay)}
     </div>
     <div class="cards" id="cards">
       <article class="card" data-cat="audiovisual"><a class="card-media" href="proyecto.html?proyecto=apple&v=6"><img src="assets/apple/AM_1.jpg" alt="Portada del proyecto Apple" loading="lazy"><span class="project-strip"><b>Apple</b><em>Motion graphics</em></span></a></article>
-      <article class="card" data-cat="audiovisual"><a class="card-media video-thumb" data-preview-video="assets/BIG/portda_bh6.mp4" href="proyecto.html?proyecto=big&v=6"><span class="project-strip"><b>BIG HERO</b><em>Animación 3D</em></span></a></article>
-      <article class="card" data-cat="audiovisual"><a class="card-media video-thumb" data-preview-video="assets/Marty/MS_12.mp4" href="proyecto.html?proyecto=marty&v=6"><span class="project-strip"><b>Marty Supreme</b><em>Motion graphics</em></span></a></article>
+      <article class="card" data-cat="audiovisual"><a class="card-media video-thumb" data-preview-video="assets/BIG/portda_bh6.mp4" data-preview-poster="assets/BIG/iluminacion2.png" href="proyecto.html?proyecto=big&v=6"><span class="project-strip"><b>BIG HERO</b><em>Animación 3D</em></span></a></article>
+      <article class="card" data-cat="audiovisual"><a class="card-media video-thumb" data-preview-video="assets/Marty/MS_12.mp4" data-preview-poster="assets/Marty/PORTADA_MS.jpg" href="proyecto.html?proyecto=marty&v=6"><span class="project-strip"><b>Marty Supreme</b><em>Motion graphics</em></span></a></article>
       <article class="card" data-cat="identidad"><a class="card-media" href="proyecto.html?proyecto=mala"><img src="assets/Mala/MALAFE_CAN.jpg" alt="Portada del proyecto Mala Fe" loading="lazy"><span class="project-strip"><b>Mala Fe</b><em>Identidad visual</em></span></a></article>
       <article class="card" data-cat="identidad"><a class="card-media" href="proyecto.html?proyecto=gala"><img src="assets/obssesion/GALA%20PANEL.jpg" alt="Portada del proyecto Gala Obsesión" loading="lazy"><span class="project-strip"><b>Gala Obsesión</b><em>Identidad visual</em></span></a></article>
       <article class="card" data-cat="identidad"><a class="card-media" href="proyecto.html?proyecto=siza"><img src="assets/siza/SIZA.jpg" alt="Portada del proyecto Siza" loading="lazy"><span class="project-strip"><b>Siza</b><em>Identidad visual</em></span></a></article>
@@ -635,7 +659,7 @@ dialog::backdrop{background:var(--color-overlay)}
   // Horizontal-drive: vertical mueve horizontal
   (function(){var w=document.querySelector('.hwrap'),t=document.getElementById('htrack');if(!w||!t)return;if(matchMedia('(max-width: 767px)').matches)return;if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;function up(){var r=w.getBoundingClientRect();var total=w.offsetHeight-window.innerHeight;var prog=Math.min(1,Math.max(0,-r.top/total));var max=t.scrollWidth-window.innerWidth+40;t.style.transform='translateX('+(-prog*max)+'px)';}window.addEventListener('scroll',function(){requestAnimationFrame(up);},{passive:true});up();})();
   // Las tarjetas audiovisuales se reproducen en silencio y en bucle cuando están visibles
-  (function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;document.querySelectorAll('.card-media[data-preview-video]').forEach(function(btn){var v=document.createElement('video');v.muted=true;v.loop=true;v.autoplay=true;v.playsInline=true;v.preload='metadata';v.src=btn.getAttribute('data-preview-video');v.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover';btn.style.position='relative';btn.appendChild(v);v.play().catch(function(){});});})();
+  (function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;document.querySelectorAll('.card-media[data-preview-video]').forEach(function(btn){var v=document.createElement('video'),poster=btn.getAttribute('data-preview-poster');v.muted=true;v.loop=true;v.autoplay=true;v.playsInline=true;v.preload='metadata';if(poster)v.poster=poster;v.src=btn.getAttribute('data-preview-video');v.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover';btn.style.position='relative';btn.appendChild(v);v.play().catch(function(){});});})();
   // Al recargar, siempre volver a la portada en lugar de restaurar el scroll anterior
   (function(){var nav=performance.getEntriesByType('navigation')[0],isReload=nav&&nav.type==='reload';if(!isReload)return;if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash)history.replaceState(null,'',location.pathname+location.search);function goHome(){window.scrollTo({top:0,left:0,behavior:'auto'});}window.addEventListener('load',function(){goHome();requestAnimationFrame(goHome);setTimeout(goHome,0);});})();
 
