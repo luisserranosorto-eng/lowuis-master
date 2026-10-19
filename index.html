@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luis Sorto — Diseñador gráfico digital y creador audiovisual</title>
 <meta name="description" content="CV digital de Luis Eduardo Serrano Sorto: diseño gráfico digital y creación audiovisual. Proyectos de cartel, identidad y video.">
+<link rel="preload" href="Tipografia/ManufacturingConsent-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="Tipografia/Barlow-ExtraBold.woff" as="font" type="font/woff" crossorigin>
 <style>
 /* ===== TOKENS derivados de DESIGN.md =====
    Colores DESIGN.md:7-28 | Tipo DESIGN.md:30-107 | Espaciado DESIGN.md:109-124
@@ -26,7 +28,7 @@
   --space-9:96px; --space-10:128px;
 }
 @font-face{font-family:"Ballet";src:url("Tipografia/Ballet-Regular-VariableFont_opsz.ttf") format("truetype");font-weight:400 700;font-style:normal;font-display:swap}
-@font-face{font-family:"Manufacturing Consent";src:url("Tipografia/ManufacturingConsent-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Manufacturing Consent";src:url("Tipografia/ManufacturingConsent-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:block}
 @font-face{font-family:"Barlow";src:url("Tipografia/Barlow-Light.woff") format("woff");font-weight:300;font-style:normal;font-display:swap}
 @font-face{font-family:"Barlow";src:url("Tipografia/Barlow-LightItalic.woff") format("woff");font-weight:300;font-style:italic;font-display:swap}
 @font-face{font-family:"Barlow";src:url("Tipografia/Barlow-Regular.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}
@@ -36,7 +38,7 @@
 @font-face{font-family:"Barlow";src:url("Tipografia/Barlow-Bold.woff") format("woff");font-weight:700;font-style:normal;font-display:swap}
 @font-face{font-family:"Barlow";src:url("Tipografia/Barlow-ExtraBold.woff") format("woff");font-weight:800;font-style:normal;font-display:swap}
 @font-face{font-family:"Barlow";src:url("Tipografia/Barlow-Black.woff") format("woff");font-weight:900;font-style:normal;font-display:swap}
-/* Barlow Condensed no existe en Tipografia/ (DESIGN.md:107,212) -> se usa Barlow ExtraBold 800 */
+/* Barlow ExtraBold construye los titulares sans serif; Manufacturing Consent se reserva para firma y acentos. */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--color-background);color:var(--color-foreground);font-family:var(--font-body);font-size:16px;line-height:1.5}
@@ -222,8 +224,9 @@ dialog::backdrop{background:var(--color-overlay)}
 #loader::before,#loader::after{display:none}
 #loader .load-mark{position:relative;z-index:1;width:100%;height:100%}
 #loader .load-mark::before,#loader .load-mark::after{display:none}
-#loader .load-mark span{position:absolute;z-index:2;inset:0;display:grid;place-items:center;font-family:"Manufacturing Consent",var(--font-accent);font-size:clamp(123px,30.8vw,364px);font-weight:400;line-height:1;color:#101010;text-shadow:none;transform:scale(.65);animation:loader-symbol-zoom 920ms cubic-bezier(.16,1,.3,1) both}
-.load-name{position:fixed;z-index:3;bottom:clamp(24px,4vw,52px);left:50vw;width:max-content;margin:0;color:#101010;font:800 clamp(15px,1.35vw,21px)/.9 var(--font-body);letter-spacing:-.02em;text-align:center;text-transform:uppercase;transform:translateX(-50%);animation:loader-name-in 520ms 150ms ease-out both}.load-name span{color:inherit}
+#loader .load-mark span{position:absolute;z-index:2;inset:0;display:grid;place-items:center;font-family:"Manufacturing Consent",var(--font-accent);font-size:clamp(123px,30.8vw,364px);font-weight:400;line-height:1;color:#101010;text-shadow:none;transform:scale(.65);opacity:0}
+.load-name{position:fixed;z-index:3;bottom:clamp(24px,4vw,52px);left:50vw;width:max-content;margin:0;color:#101010;font:800 clamp(15px,1.35vw,21px)/.9 var(--font-body);letter-spacing:-.02em;text-align:center;text-transform:uppercase;transform:translateX(-50%);opacity:0}.load-name span{color:inherit}
+html.fonts-ready #loader .load-mark span{animation:loader-symbol-zoom 920ms cubic-bezier(.16,1,.3,1) both}html.fonts-ready .load-name{animation:loader-name-in 520ms 150ms ease-out both}
 #loader.is-leaving{opacity:0;pointer-events:none}
 @keyframes loader-mark-in{0%{opacity:0;transform:translateY(35%) scale(.42) rotate(12deg)}58%{opacity:1;transform:translateY(-2%) scale(1.04) rotate(-1deg)}100%{transform:translateY(0) scale(1) rotate(0)}}
 @keyframes loader-symbol-in{0%{transform:skewX(-7deg) scale(.2) rotate(-24deg);opacity:0}62%{transform:skewX(-7deg) scale(1.13) rotate(2deg);opacity:1}100%{transform:skewX(-7deg) scale(1) rotate(0);opacity:1}}
@@ -615,8 +618,8 @@ dialog::backdrop{background:var(--color-overlay)}
   if('IntersectionObserver' in window){var vio=new IntersectionObserver(function(es){es.forEach(function(en){var v=en.target.querySelector('video');if(!v)return;if(en.isIntersecting&&v.paused)v.play().catch(function(){});if(!en.isIntersecting&&!v.paused)v.pause();});});document.querySelectorAll('.card').forEach(function(c){vio.observe(c);});}
 })();
 
-  // Apertura breve, saltable y respetuosa con reducir movimiento
-  (function(){var l=document.getElementById('loader'),done=false,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;function hide(){if(done)return;done=true;if(reduce){l.hidden=true;return;}l.classList.add('is-leaving');setTimeout(function(){l.hidden=true;},380);}if(reduce)hide();else setTimeout(hide,900);})();
+  // La apertura espera las fuentes del logotipo: evita mostrar LOWUIS con sustitutos antes de Manufacturing Consent.
+  (function(){var l=document.getElementById('loader'),done=false,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;function hide(){if(done)return;done=true;if(reduce){l.hidden=true;return;}l.classList.add('is-leaving');setTimeout(function(){l.hidden=true;},380);}var fontsReady=document.fonts?Promise.all([document.fonts.load('400 1em "Manufacturing Consent"'),document.fonts.load('800 1em Barlow')]).catch(function(){}):Promise.resolve();var fallback=new Promise(function(resolve){setTimeout(resolve,1500);});Promise.race([fontsReady,fallback]).then(function(){document.documentElement.classList.add('fonts-ready');if(reduce){hide();return;}setTimeout(hide,920);});})();
   // La marca siempre reinicia la portada: el loader cubre el cambio antes de mostrar el inicio.
   (function(){var brand=document.querySelector('.site-header .brand');if(!brand)return;brand.addEventListener('click',function(e){e.preventDefault();location.assign('index.html?intro='+Date.now());});})();
   // Dock de software: la proximidad del cursor crea una ola de magnificaci\u00f3n, como en macOS.
