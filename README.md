@@ -11,4 +11,5 @@ Portafolio digital de **Luis Eduardo Sorto**, diseñador gráfico digital y crea
 
 - [Sistema de diseño Lowuis](https://github.com/luisserranosorto-eng/lowuis-master/blob/main/DESIGN.md)
 - [Sistema de diseño Lowuis (PDF)](https://github.com/luisserranosorto-eng/lowuis-master/blob/main/assets/Design_luis.pdf)
+- [Arquitectura del portafolio Lowuis](https://github.com/luisserranosorto-eng/lowuis-master/blob/main/ARQUITECTURA.md)
 - [Arquitectura del portafolio Lowuis (PDF)](https://github.com/luisserranosorto-eng/lowuis-master/blob/main/assets/Arquitectura-CV.pdf)
