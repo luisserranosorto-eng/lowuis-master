@@ -55,7 +55,7 @@ Los titulares usan escalas fluidas para mantener jerarquía en escritorio y móv
 
 El sitio trabaja con un ancho amplio y márgenes que se reducen de forma progresiva en tabletas y móviles. La navegación puede ocupar una retícula más abierta que el contenido para quedar cerca de las esquinas sin perder aire.
 
-- Las galerías de proyecto usan una, dos o tres columnas según la pieza y el ancho disponible.
+- Las galerías de proyecto usan una, dos o tres columnas según la pieza y el ancho disponible. Reúnen identidad visual, diseño editorial, audiovisual, diseño de empaque y modelado 3D.
 - Apple organiza seis imágenes verticales en dos filas de tres columnas en escritorio; su video se presenta debajo, centrado y con el mismo ancho de una pieza de la retícula.
 - MALA FE y GALA OBSESSION agrupan formatos horizontales, verticales y carteles sin deformarlos.
 - Marty Supreme intercala piezas a tres columnas con imágenes de ancho completo para marcar ritmo.
@@ -71,7 +71,7 @@ La cabecera es fija y transparente, con desenfoque para mantener legibilidad sob
 
 ### Tarjetas de proyecto
 
-Las tarjetas muestran siempre nombre y disciplina. Las piezas audiovisuales pueden mostrar una vista previa silenciosa y cuentan con respaldo visual mientras cargan. Las tarjetas enlazan a una ficha independiente de cada proyecto.
+Las tarjetas muestran siempre nombre y disciplina. La sección permite filtrar por Identidad, Editorial, Audiovisual, Modelado 3D y Empaque. Las piezas audiovisuales pueden mostrar una vista previa silenciosa y cuentan con respaldo visual mientras cargan. Las tarjetas enlazan a una ficha independiente de cada proyecto.
 
 ### Videos
 
@@ -103,6 +103,7 @@ Los videos secundarios se cargan al acercarse a la sección. La experiencia resp
 - Mantener fondos oscuros, alto contraste y esquinas rectas.
 - Conservar proporciones y paletas propias de cada proyecto.
 - Dar protagonismo a la tipografía y a los medios audiovisuales.
+- Mantener las categorías de Diseño de empaque y Modelado 3D visibles como texto, no sólo mediante color.
 
 **No**
 
